@@ -1,0 +1,8 @@
+server:
+  port: 8080
+mongo:
+  url: mongodb://admin:admin@localhost:27017
+  database: webhook
+line:
+  channelSecret: aaebffdb15d1f21d28021e2ea24f85f0
+  channelAccessToken: F9AptMYBr9Rqx9k6ydIGhZDc1OOKFwC+iFAYGhk1WBsQANtsSiu3NbFqMSwQxA6oXYiaQmFzawms4D3z/5vf/77y6xl3xs1XmUuE6BzGVmhyGcBilLQVoxaSVbagCuf8OhEcA690iDeEE/Iubp74xgdB04t89/1O/w1cDnyilFU=
