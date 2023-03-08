@@ -1,0 +1,14 @@
+FROM golang:1.20-alpine
+
+WORKDIR /usr/app
+COPY . /usr/app
+
+ENV SSL_CERT_DIR=/etc/ssl/certs
+
+# RUN go install .
+
+RUN go build 
+
+CMD ["./webhook"] 
+
+EXPOSE 8080

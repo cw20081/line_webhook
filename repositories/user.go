@@ -7,7 +7,6 @@ import (
 	"webhook/models"
 
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -29,20 +28,5 @@ func GetUser(userID string) (models.User, error) {
 
 	err := userCollection.FindOne(ctx, bson.D{{"sources.line", userID}}).Decode(&user)
 
-	if err != nil {
-		if err == mongo.ErrNoDocuments { //user not found,create one
-			user = models.User{
-				Id:      primitive.NewObjectID(),
-				Sources: map[string]string{"line": userID},
-			}
-
-			_, err := CreateUser(user)
-
-			if err != nil {
-				return user, err
-			}
-		}
-	}
-
-	return user, nil
+	return user, err
 }

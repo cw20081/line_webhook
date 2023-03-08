@@ -1,7 +1,7 @@
 server:
   port: 8080
 mongo:
-  url: mongodb://admin:admin@localhost:27017
+  url: mongodb://admin:admin@db:27017
   database: webhook
 line:
   channelSecret: aaebffdb15d1f21d28021e2ea24f85f0

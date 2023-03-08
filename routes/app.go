@@ -17,5 +17,5 @@ func AppRoute(router *gin.Engine) {
 
 	router.POST("/pushmessage/:userID", controllers.SendChat())
 
-	router.GET("/message/list/:userID", controllers.IndexChat())
+	router.GET("/message/index/:userID", controllers.IndexChat())
 }

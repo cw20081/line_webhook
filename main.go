@@ -14,9 +14,7 @@ func main() {
 
 	routes.AppRoute(app)
 
-	err := app.Run(":" + configs.GetConfig("server.port"))
-
-	if err != nil {
+	if err := app.Run(":" + configs.GetConfig("server.port")); err != nil {
 		panic(err)
 	}
 }

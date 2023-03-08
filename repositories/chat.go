@@ -6,6 +6,7 @@ import (
 	"time"
 	"webhook/configs"
 	"webhook/models"
+	"webhook/responses"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -21,12 +22,12 @@ func SaveChat(chat models.Chat) (*mongo.InsertOneResult, error) {
 	return chatCollection.InsertOne(ctx, chat)
 }
 
-func IndexChat(user models.User) []models.Chat {
-	var res []models.Chat
+func IndexChat(user models.User) []responses.ChatIndex {
+	var res []responses.ChatIndex
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	cursor, err := chatCollection.Find(ctx, bson.D{{"user_id", user.Id}, {"type", "recive"}})
+	cursor, err := chatCollection.Find(ctx, bson.D{{"user_id", user.Id}})
 	if err != nil {
 		log.Fatal(err)
 	}
